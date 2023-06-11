@@ -66,9 +66,16 @@ main {
 main h1 {
   margin-bottom: 0.1em;
 }
+main .introduction {
+  margin-bottom: 2em;
+}
 main .introduction p {
   font-size: 1.5em;
-  margin-bottom: 1em;
+  margin-bottom: 0.25em;
+}
+main .introduction .more {
+  color: #cccccc;
+  font-size: 1em;
 }
 main p {
   margin-bottom: 0.5em;
