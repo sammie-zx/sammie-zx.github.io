@@ -1,0 +1,105 @@
+@import 'config';
+
+.container {
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.functions {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    > div {
+        padding: 1em;
+        border-radius: 5px;
+        background-color: lighten($color: $background-color, $amount: 5);
+        filter: drop-shadow(3px 5px lighten($color: $background-color, $amount: 20));
+    }
+}
+
+main {
+    margin: 1em;
+    padding: 2em;
+    // @include border('left');
+    h1 {
+        margin-bottom: 0.1em;
+    }
+    .introduction {
+        p {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+    }
+    & p{
+        margin-bottom: 0.5em;
+    }
+}
+
+nav {
+    margin-top: -15em;
+    text-align: end;
+    li {
+        padding: 1em;
+        margin-right: 1em;
+        list-style: none;
+        a:hover, a:focus {
+            color: darken($main-text-color, $amount: 30);
+            cursor: pointer;
+            &::after {
+                content: ' }';
+            }
+            &::before {
+                content: '{ ';
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .container {
+        padding: 1em;
+        flex-direction: column;
+    }
+    main {
+        position: absolute;
+        top: 27%
+    }
+    nav {
+        position: absolute;
+        top: 27%;
+        right: 1em;
+        li {
+            padding: 0.8em;
+        }
+    }
+    .functions {
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        row-gap: 1em;
+    }
+}
+
+@media screen and (min-width: 1120px) {
+    .container {
+        padding: 1em;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .container {
+        padding: 10em;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .container {
+        padding: 15em;
+    }
+}

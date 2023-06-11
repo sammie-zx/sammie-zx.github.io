@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "BagnardSans";
+  src: url("BagnardSans.otf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "BagnardSans";
+}
+
+body {
+  font-family: sans-serif;
+  color: white;
+  background-color: rgb(20, 20, 20);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.function {
+  color: #4DA8A5;
+}
+
+.curly-brace {
+  color: #F2BE22;
+}
+
+.highlight {
+  color: #C093BD;
+}
+
+.tab {
+  margin-left: 2em;
+}
+
+.container {
+  padding: 1em;
+  margin: 1em;
+}
+
+.proj {
+  padding: 1em;
+  margin: 1em;
+}
+.proj ul {
+  margin-top: 1em;
+  margin-left: 3em;
+}
+.proj ul li {
+  list-style: decimal-leading-zero;
+  padding: 1em;
+}
+.proj ul li a {
+  color: #4DA8A5;
+}
+
+nav {
+  color: #999999;
+}/*# sourceMappingURL=project_style.css.map */

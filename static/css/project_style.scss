@@ -1,0 +1,27 @@
+@import 'config';
+
+
+.container {
+    padding: 1em;
+    margin: 1em;
+}
+
+.proj {
+    padding: 1em;
+    margin: 1em;
+    ul {
+        margin-top: 1em;
+        margin-left: 3em;
+        li {
+            list-style: decimal-leading-zero;
+            padding: 1em;
+            a {
+                color: $function-color;
+            }
+        }
+    }
+}
+
+nav {
+    color: darken($color: $main-text-color, $amount: 40);
+}

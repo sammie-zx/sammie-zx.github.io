@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "BagnardSans";
+  src: url("BagnardSans.otf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "BagnardSans";
+}
+
+body {
+  font-family: sans-serif;
+  color: white;
+  background-color: rgb(20, 20, 20);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.function {
+  color: #4DA8A5;
+}
+
+.curly-brace {
+  color: #F2BE22;
+}
+
+.highlight {
+  color: #C093BD;
+}
+
+.tab {
+  margin-left: 2em;
+}
+
+.container {
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.functions {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.functions > div {
+  padding: 1em;
+  border-radius: 5px;
+  background-color: #212121;
+  filter: drop-shadow(3px 5px #474747);
+}
+
+main {
+  margin: 1em;
+  padding: 2em;
+}
+main h1 {
+  margin-bottom: 0.1em;
+}
+main .introduction p {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+main p {
+  margin-bottom: 0.5em;
+}
+
+nav {
+  margin-top: -15em;
+  text-align: end;
+}
+nav li {
+  padding: 1em;
+  margin-right: 1em;
+  list-style: none;
+}
+nav li a:hover, nav li a:focus {
+  color: #b3b3b3;
+  cursor: pointer;
+}
+nav li a:hover::after, nav li a:focus::after {
+  content: " }";
+}
+nav li a:hover::before, nav li a:focus::before {
+  content: "{ ";
+}
+
+@media screen and (max-width: 1120px) {
+  .container {
+    padding: 1em;
+    flex-direction: column;
+  }
+  main {
+    position: absolute;
+    top: 27%;
+  }
+  nav {
+    position: absolute;
+    top: 27%;
+    right: 1em;
+  }
+  nav li {
+    padding: 0.8em;
+  }
+  .functions {
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    row-gap: 1em;
+  }
+}
+@media screen and (min-width: 1120px) {
+  .container {
+    padding: 1em;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .container {
+    padding: 10em;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .container {
+    padding: 15em;
+  }
+}/*# sourceMappingURL=style.css.map */

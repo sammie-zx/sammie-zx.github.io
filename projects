@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="stylesheet" href="/static/css/project_style.css">
+
+
+    <title>Hey, I&apos;m Samuel</title>
+</head>
+<body>
+    
+    <div class="container">
+        <nav>
+            <a href="/">back</a>
+        </nav>
+        <main class="proj">
+            <p>These are my personal projects!</p>
+            <ul>
+                <li><a href="">LiquidFX: A forex trading signal web appication.</a></li>
+                <li><a href="">CourseSite: A course sharing platform.</a></li>
+            </ul>
+        </main>
+    </div>
+
+</body>
+</html>

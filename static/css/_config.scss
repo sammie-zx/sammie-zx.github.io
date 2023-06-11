@@ -1,0 +1,58 @@
+$background-color: rgb(20, 20, 20);
+$main-text-color: white;
+$brace-color: #F2BE22;
+$function-color: #4DA8A5;
+$main-font-size: larger;
+$main-font: sans-serif;
+
+@font-face {
+    font-family: 'BagnardSans';
+    src: url('BagnardSans.otf');
+}
+
+@mixin border($direction) {
+    border-radius: 2.5px;
+    border-width: 3px;
+    border-color: $main-text-color;
+    @if ($direction == 'left') {
+        border-bottom-style: solid;
+        border-left-style: solid;
+    } @else if ($direction == 'right') {
+        border-right-style: solid;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'BagnardSans';
+}
+
+body {
+    font-family: $main-font;
+    color: $main-text-color;
+    background-color: $background-color;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.function {
+    color: $function-color;
+}
+
+.curly-brace {
+    color: $brace-color;
+}
+
+.highlight {
+    color: #C093BD;
+}
+
+.tab {
+    margin-left: 2em;
+}
