@@ -108,11 +108,11 @@ nav li a:hover::before, nav li a:focus::before {
   }
   main {
     position: absolute;
-    top: 32%;
+    top: 34%;
   }
   nav {
     position: absolute;
-    top: 32%;
+    top: 34%;
     right: 1em;
   }
   nav li {
