@@ -1,37 +1,142 @@
 @import 'config';
 
-.container {
-    padding: 1em;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
+// angle of card glow gradient 
+@property --gradient-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
 }
 
-.functions {
-    margin-top: 1em;
+main {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2em;
+}
 
-    > div {
-        padding: 1em;
-        border-radius: 5px;
-        background-color: lighten($color: $background-color, $amount: 5);
-        filter: drop-shadow(3px 5px lighten($color: $background-color, $amount: 20));
+.glow {
+    position: fixed;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 100%;
+    opacity: 0;
+    background: radial-gradient(
+        darken($grad-clr-1, 35),
+        $bg-color);
+
+    filter: blur(5em);
+    z-index: -2;
+
+    @keyframes glow-touch-in {
+        0% {
+            opacity: 0%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+    @keyframes glow-touch-out {
+        0% {
+            opacity: 100%;
+        }
+        100% {
+            opacity: 0%;
+        }
+    }
+}
+
+.card {
+    position: relative;
+    padding: 1em;
+    border-radius: 5px;
+    background: $bg;
+
+    min-width: 280px;
+    min-height: 100px;
+
+    &-title {
+        margin-bottom: 1em;
+        color: $grad-clr-4;
+    }
+
+    &-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .next {
+            width: 2em;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &-items {
+        p {
+            padding: 0.15em;
+        }
+    }
+
+    --gradient-angle: 0deg;
+    @keyframes rotation {
+        0% { 
+            --gradient-angle: 0deg;
+        }
+        100% { 
+            --gradient-angle: 360deg;
+        }
+    }
+
+    &::after {
+        filter: blur(0.5em);
+    }
+}
+
+.first-glow {
+    // glow animation
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        inset: -0.15em;
+        border-radius: inherit;
+        animation: rotation 10s linear infinite;
+        background: conic-gradient(
+            from var(--gradient-angle),
+            $grad-clr-3,
+            $grad-clr-4,
+            $grad-clr-5,
+            $grad-clr-4,
+            $grad-clr-3,
+        );        
+        z-index: -1;
+    }
+}
+
+.second-glow {
+    // glow animation
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        inset: -0.15em;
+        border-radius: inherit;
+        animation: rotation 10s linear infinite;
+        background: conic-gradient(
+            from var(--gradient-angle),
+            $grad-clr-1,
+            $grad-clr-2,
+            $grad-clr-3,
+            $grad-clr-2,
+            $grad-clr-1,
+        );        
+        z-index: -1;
     }
 }
 
 main {
-    margin: 1em;
-    padding: 2em;
-    // @include border('left');
-    h1 {
-        margin-bottom: 0.1em;
-    }
     .introduction {
-        margin-bottom: 2em;
         p {
             font-size: 1.5em;
             margin-bottom: 0.25em;
@@ -40,71 +145,38 @@ main {
             color: darken($color: $main-text-color, $amount: 20);
             font-size: 1em;
         }
+        .greet{
+            margin-bottom: 0.5em;
+            color: lighten($color: $grad-clr-4, $amount: 10);
+            font-size: 18px;
+        }
     }
-    & p{
-        margin-bottom: 0.5em;
+    .functions {
+        margin-top: 2em;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2em
     }
 }
 
 nav {
-    margin-top: -15em;
-    text-align: end;
-    li {
-        padding: 1em;
-        margin-right: 1em;
+    margin-top: 2em;
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         list-style: none;
-        a:hover, a:focus {
-            color: darken($main-text-color, $amount: 30);
-            cursor: pointer;
-            &::after {
-                content: ' }';
-            }
-            &::before {
-                content: '{ ';
+    }
+    li {
+        margin: 1em;
+        a {
+            color: darken($color: $main-text-color, $amount: 30);
+            &:hover,
+            &:focus {
+                color: darken($color: $main-text-color, $amount: 50);
             }
         }
-    }
-}
-
-@media screen and (max-width: 1120px) {
-    .container {
-        padding: 1em;
-        flex-direction: column;
-    }
-    main {
-        position: absolute;
-        top: 34%
-    }
-    nav {
-        position: absolute;
-        top: 34%;
-        right: 1em;
-        li {
-            padding: 0.8em;
-        }
-    }
-    .functions {
-        flex-direction: column;
-        justify-content: center;
-        align-items: left;
-        row-gap: 1em;
-    }
-}
-
-@media screen and (min-width: 1120px) {
-    .container {
-        padding: 1em;
-    }
-}
-
-@media screen and (min-width: 1500px) {
-    .container {
-        padding: 10em;
-    }
-}
-
-@media screen and (min-width: 1900px) {
-    .container {
-        padding: 15em;
     }
 }

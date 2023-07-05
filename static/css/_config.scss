@@ -1,56 +1,44 @@
-$background-color: rgb(20, 20, 20);
-$main-text-color: white;
-$brace-color: #F2BE22;
-$function-color: #4DA8A5;
-$main-font-size: larger;
-$main-font: sans-serif;
+$grad-clr-1: #4D7EA8;
+$grad-clr-2: #4D50A8;
+$grad-clr-3: #774DA8;
+$grad-clr-4: #A54DA8;
+$grad-clr-5: #A84D7E;
+
+$bg-color: rgb(20, 20, 20);
+$main-text-color: lighten($grad-clr-1, 40);
+
+$bg: linear-gradient(
+    140deg,
+    $bg-color,
+    darken($grad-clr-1, 40),
+);
 
 @font-face {
-    font-family: 'BagnardSans';
-    src: url('BagnardSans.otf');
+    font-family: 'HackNerdFont';
+    src: url('HackNerdFont-Regular.ttf');
 }
 
-@mixin border($direction) {
-    border-radius: 2.5px;
-    border-width: 3px;
-    border-color: $main-text-color;
-    @if ($direction == 'left') {
-        border-bottom-style: solid;
-        border-left-style: solid;
-    } @else if ($direction == 'right') {
-        border-right-style: solid;
-    }
-}
+$main-font: 'HackNerdFont';
 
 * {
     margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    font-family: 'BagnardSans';
 }
 
 body {
+    padding: 1em;
+    margin: 1em;
     font-family: $main-font;
     color: $main-text-color;
-    background-color: $background-color;
+    background: $bg;
+    height: 100vh;
 }
 
 a {
     text-decoration: none;
     color: inherit;
-}
-
-.function {
-    color: $function-color;
-}
-
-.curly-brace {
-    color: $brace-color;
-}
-
-.highlight {
-    color: #C093BD;
 }
 
 .tab {

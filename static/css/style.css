@@ -1,19 +1,21 @@
 @font-face {
-  font-family: "BagnardSans";
-  src: url("BagnardSans.otf");
+  font-family: "HackNerdFont";
+  src: url("HackNerdFont-Regular.ttf");
 }
 * {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  font-family: "BagnardSans";
 }
 
 body {
-  font-family: sans-serif;
-  color: white;
-  background-color: rgb(20, 20, 20);
+  padding: 1em;
+  margin: 1em;
+  font-family: "HackNerdFont";
+  color: #d5e1ec;
+  background: linear-gradient(140deg, rgb(20, 20, 20), #0d151c);
+  height: 100vh;
 }
 
 a {
@@ -21,122 +23,146 @@ a {
   color: inherit;
 }
 
-.function {
-  color: #4DA8A5;
-}
-
-.curly-brace {
-  color: #F2BE22;
-}
-
-.highlight {
-  color: #C093BD;
-}
-
 .tab {
   margin-left: 2em;
 }
 
-.container {
-  padding: 1em;
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+main {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  height: 100vh;
+  justify-content: center;
+  padding-bottom: 2em;
 }
 
-.functions {
-  margin-top: 1em;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.glow {
+  position: fixed;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 100%;
+  opacity: 0;
+  background: radial-gradient(#15222e, rgb(20, 20, 20));
+  filter: blur(5em);
+  z-index: -2;
 }
-.functions > div {
+@keyframes glow-touch-in {
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes glow-touch-out {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+  }
+}
+
+.card {
+  position: relative;
   padding: 1em;
   border-radius: 5px;
-  background-color: #212121;
-  filter: drop-shadow(3px 5px #474747);
+  background: linear-gradient(140deg, rgb(20, 20, 20), #0d151c);
+  min-width: 280px;
+  min-height: 100px;
+  --gradient-angle: 0deg;
+}
+.card-title {
+  margin-bottom: 1em;
+  color: #A54DA8;
+}
+.card-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card-top .next {
+  width: 2em;
+}
+.card-top .next:hover {
+  cursor: pointer;
+}
+.card-items p {
+  padding: 0.15em;
+}
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+.card::after {
+  filter: blur(0.5em);
 }
 
-main {
-  margin: 1em;
-  padding: 2em;
+.first-glow::after, .first-glow::before {
+  content: "";
+  position: absolute;
+  inset: -0.15em;
+  border-radius: inherit;
+  animation: rotation 10s linear infinite;
+  background: conic-gradient(from var(--gradient-angle), #774DA8, #A54DA8, #A84D7E, #A54DA8, #774DA8);
+  z-index: -1;
 }
-main h1 {
-  margin-bottom: 0.1em;
+
+.second-glow::after, .second-glow::before {
+  content: "";
+  position: absolute;
+  inset: -0.15em;
+  border-radius: inherit;
+  animation: rotation 10s linear infinite;
+  background: conic-gradient(from var(--gradient-angle), #4D7EA8, #4D50A8, #774DA8, #4D50A8, #4D7EA8);
+  z-index: -1;
 }
-main .introduction {
-  margin-bottom: 2em;
-}
+
 main .introduction p {
   font-size: 1.5em;
   margin-bottom: 0.25em;
 }
 main .introduction .more {
-  color: #cccccc;
+  color: #8fb0cc;
   font-size: 1em;
 }
-main p {
+main .introduction .greet {
   margin-bottom: 0.5em;
+  color: #b96cbc;
+  font-size: 18px;
+}
+main .functions {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
 }
 
 nav {
-  margin-top: -15em;
-  text-align: end;
+  margin-top: 2em;
 }
-nav li {
-  padding: 1em;
-  margin-right: 1em;
+nav ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   list-style: none;
 }
+nav li {
+  margin: 1em;
+}
+nav li a {
+  color: #6c97bc;
+}
 nav li a:hover, nav li a:focus {
-  color: #b3b3b3;
-  cursor: pointer;
-}
-nav li a:hover::after, nav li a:focus::after {
-  content: " }";
-}
-nav li a:hover::before, nav li a:focus::before {
-  content: "{ ";
-}
-
-@media screen and (max-width: 1120px) {
-  .container {
-    padding: 1em;
-    flex-direction: column;
-  }
-  main {
-    position: absolute;
-    top: 34%;
-  }
-  nav {
-    position: absolute;
-    top: 34%;
-    right: 1em;
-  }
-  nav li {
-    padding: 0.8em;
-  }
-  .functions {
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    row-gap: 1em;
-  }
-}
-@media screen and (min-width: 1120px) {
-  .container {
-    padding: 1em;
-  }
-}
-@media screen and (min-width: 1500px) {
-  .container {
-    padding: 10em;
-  }
-}
-@media screen and (min-width: 1900px) {
-  .container {
-    padding: 15em;
-  }
+  color: #3d6485;
 }/*# sourceMappingURL=style.css.map */

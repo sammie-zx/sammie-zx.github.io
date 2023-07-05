@@ -1,36 +1,26 @@
 @font-face {
-  font-family: "BagnardSans";
-  src: url("BagnardSans.otf");
+  font-family: "HackNerdFont";
+  src: url("HackNerdFont-Regular.ttf");
 }
 * {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
-  font-family: "BagnardSans";
 }
 
 body {
-  font-family: sans-serif;
-  color: white;
-  background-color: rgb(20, 20, 20);
+  padding: 1em;
+  margin: 1em;
+  font-family: "HackNerdFont";
+  color: #d5e1ec;
+  background: linear-gradient(140deg, rgb(20, 20, 20), #0d151c);
+  height: 100vh;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-}
-
-.function {
-  color: #4DA8A5;
-}
-
-.curly-brace {
-  color: #F2BE22;
-}
-
-.highlight {
-  color: #C093BD;
 }
 
 .tab {
@@ -54,10 +44,7 @@ a {
   list-style: decimal-leading-zero;
   padding: 1em;
 }
-.proj ul li a {
-  color: #4DA8A5;
-}
 
 nav {
-  color: #999999;
+  color: #4d7ea8;
 }/*# sourceMappingURL=project_style.css.map */
